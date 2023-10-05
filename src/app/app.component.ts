@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'mi-primera-app';
+  title = 'Mi primera aplicacion en angular';
   owner = 'Andres Felipe Silva';
+
+  CambiarNombre(title: string, name: string) {
+    this.title = title;
+    this.owner = name;
+  }
 }
