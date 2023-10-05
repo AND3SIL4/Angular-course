@@ -7,9 +7,21 @@ import { Component } from "@angular/core";
 })
 
 export class PeopleComponent{
-  text = 'Boton, boton, boton';
+  deshabilitar:boolean = false;
+  mensaje:string = 'No se ha agregado ninguna persona';
+  titulo = '';
 
-  onChange() {
-    this.text = 'Buena la rata'
-  }
+  agregarPersona():void {
+    this.mensaje = 'Persona agregada'; 
+  } 
+
+  // Metodo para modificar usando event binding
+  // modificarTitulo(event:Event):void {
+  //   const title = (<HTMLInputElement>event.target).value;
+  //   this.titulo = title;
+  //   console.log('Se esta ejecutando el metodo modificar titulo');
+  //   console.log(title);
+  // }
+
+
 }
