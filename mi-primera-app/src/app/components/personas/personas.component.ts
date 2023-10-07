@@ -8,12 +8,15 @@ import { Component } from "@angular/core";
 
 export class PeopleComponent{
   deshabilitar:boolean = false;
-  mensaje:string = 'No se ha agregado ninguna persona';
+  mensaje:string = '';
   titulo = '';
 
-  agregarPersona():void {
-    this.mensaje = 'Persona agregada'; 
-  } 
+  mostrar: boolean = false;
+
+  agregarPersona(): void {
+    this.mostrar = true;
+    this.mensaje = 'Persona agregada';
+  }
 
   // Metodo para modificar usando event binding
   // modificarTitulo(event:Event):void {
