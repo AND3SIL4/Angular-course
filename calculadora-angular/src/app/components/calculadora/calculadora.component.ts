@@ -5,18 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './calculadora.component.html',
 })
 export class CalculadoraComponent {
+  result: string = '';
 
-  numeroUno = '';
-  numeroDos = '';
-
-  result:string = '';
-
-  sumar():void {
-    let primero = parseInt(this.numeroUno);
-    let segundo = parseInt(this.numeroDos);
-    let resultado = primero + segundo
-    this.result = resultado.toString();
-    this.numeroUno = '';
-    this.numeroDos = '';
+  modificarResultado(resultado: string): void {
+    this.result = resultado;
   }
 }

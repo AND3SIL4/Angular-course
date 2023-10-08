@@ -1,26 +1,9 @@
 <div class="container">
-  <div class="form-floating mb-3">
-    <input
-      type="number"
-      class="form-control mt-4"
-      id="numeroUno"
-      placeholder="Primer digito"
-      [(ngModel)]="numeroUno"
-    />
-    <label for="numeroUno">Ingrese el primer digito:</label>
-  </div>
-  <div class="form-floating">
-    <input
-      type="number"
-      class="form-control mt-4"
-      id="numeroDos"
-      placeholder="Segundo digito"
-      [(ngModel)]="numeroDos"
-    />
-    <label for="numeroDos">Ingrese el segundo digito:</label>
-  </div>
+  <h1>Apliacion de calculadora para sumar dos numeros</h1>
 
-  <button class="btn btn-primary mt-5" (click)="sumar()">Sumar</button>
+  <!-- Modulo de operandos -->
+  <app-operandos (resultChanged)="modificarResultado($event)"> </app-operandos>
 
-  <p class="mt-5 alert alert-success">Resultado: {{ result }}</p>
+  <!-- Modulo de resultado -->
+  <app-resultado [resultado]="result"> </app-resultado>
 </div>
