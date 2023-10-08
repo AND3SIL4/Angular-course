@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './calculadora.component.html',
 })
 export class CalculadoraComponent {
-  result: string = '';
+  result: string;
 
   modificarResultado(resultado: string): void {
     this.result = resultado;

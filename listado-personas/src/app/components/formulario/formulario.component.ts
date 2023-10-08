@@ -11,21 +11,18 @@ export class FormularioComponent {
   @Output() conditionChanged = new EventEmitter<boolean>();
   @Output() messageChanged = new EventEmitter<string>();
 
-  nombreInput: string = '';
-  apellidoInput: string = '';
-
-  agregarPersona(): void {
-    if (this.nombreInput === '' && this.apellidoInput === '') {
+  agregarPersona(nombreInput:HTMLInputElement, apellidoInput:HTMLInputElement): void {
+    if (nombreInput.value === '' && apellidoInput.value === '') {
       this.messageChanged.emit('Error, por favor intente de nuevo');
     } else {
       this.conditionChanged.emit(true);
-      let personaUno = new Persona(this.nombreInput, this.apellidoInput);
+      let personaUno = new Persona(nombreInput.value, apellidoInput.value);
 
       // Emitiendo infomacion de hijo a padre
       this.personaCreada.emit(personaUno)
 
-      this.nombreInput = '';
-      this.apellidoInput = '';
+      nombreInput.value = '';
+      apellidoInput.value = '';
     }
   }
 }

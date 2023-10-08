@@ -5,11 +5,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './operandos.component.html',
 })
 export class OperandosComponent {
-
   @Output() resultChanged = new EventEmitter<string>();
 
-  numeroUno = '';
-  numeroDos = '';
+  numeroUno: string;
+  numeroDos: string;
 
   sumar(): void {
     let primero = parseInt(this.numeroUno);
