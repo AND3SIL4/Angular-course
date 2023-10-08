@@ -3,46 +3,25 @@
     <h3>{{ title }}</h3>
   </div>
   <hr />
-  <form action="" class="form-row d-flex gap-2">
-    <div class="form-group col-md-3">
-      <input
-        placeholder="Nombre"
-        type="text"
-        name="nombre"
-        id="nombre"
-        class="form-control"
-        [(ngModel)]="nombreInput"
-      />
-    </div>
-    <div class="form-group col-md-3">
-      <input
-        placeholder="Apellido"
-        type="text"
-        name="apellido"
-        id="apellido"
-        class="form-control"
-        [(ngModel)]="apellidoInput"
-      />
-    </div>
-    <div class="col">
-      <button type="submit" class="btn btn-primary" (click)="agregarPersona()">
-        Agregar
-      </button>
-    </div>
-  </form>
+  <app-formulario
+    (personaCreada)="personaAgregada($event)"
+    (conditionChanged)="cambiarCondicion($event)"
+    (messageChanged)="cambiarMensaje($event)"
+  >
+  </app-formulario>
   <hr />
 </div>
+
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div *ngIf="condition; else condicion">
-        <p *ngFor="let persona of personas; let i = index">
-          {{ i + 1 }}. {{ persona.nombre }} {{ persona.apellido }}
-        </p>
-      </div>
-      <ng-template #condicion>
-        <p style="color: grey;">{{ message }}</p>
-      </ng-template>
-    </div>
+  <div *ngIf="condition; else condicion">
+    <app-persona
+      *ngFor="let personaElemento of personas; let i = index"
+      [persona]="personaElemento"
+      [indice]="i"
+    >
+    </app-persona>
   </div>
 </div>
+<ng-template #condicion>
+  <p style="color: grey">{{ message }}</p>
+</ng-template>

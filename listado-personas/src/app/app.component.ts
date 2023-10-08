@@ -8,25 +8,17 @@ import { Persona } from './persona.model';
 export class AppComponent {
   title = 'Listado personas';
   condition = false;
-  message = 'No se han agregado personas';
-
+  message = 'No se han agregado personas'
   personas: Persona[] = [
   ];
 
-  nombreInput: string = '';
-  apellidoInput: string = '';
-
-  agregarPersona(): void {
-    if (this.nombreInput === '' && this.apellidoInput === '') {
-      this.message = 'Error, por favor intente de nuevo';
-    } else {
-      this.condition = true;
-      let personaUno = new Persona(this.nombreInput, this.apellidoInput);
-      this.personas.push(personaUno)
-      this.nombreInput = '';
-      this.apellidoInput = '';
-    }
+  personaAgregada(persona: Persona):void {
+    this.personas.push(persona);
   }
-
-
+  cambiarCondicion(condition: boolean): void{
+    this.condition = condition
+  }
+  cambiarMensaje(message: string): void{
+    this.message = message
+  }
 }
