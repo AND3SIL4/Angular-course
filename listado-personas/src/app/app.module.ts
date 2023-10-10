@@ -14,7 +14,13 @@ import { DataServices } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, PersonaComponent, FormularioComponent, PersonasComponent, ErrorComponent],
+  declarations: [
+    AppComponent,
+    PersonaComponent,
+    FormularioComponent,
+    PersonasComponent,
+    ErrorComponent,
+  ],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [LogginService, PersonaService, DataServices],
   bootstrap: [AppComponent],
