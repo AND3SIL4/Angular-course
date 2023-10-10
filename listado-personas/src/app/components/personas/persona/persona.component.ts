@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Persona } from 'src/app/persona.model';
 import { PersonaService } from 'src/app/personas.service';
 
@@ -6,14 +6,21 @@ import { PersonaService } from 'src/app/personas.service';
   selector: 'app-persona',
   templateUrl: './persona.component.html',
 })
-export class PersonaComponent {
+export class PersonaComponent implements OnInit{
 
   // Recibiendo informacion desde el componente padre
   @Input() persona: Persona;
   @Input() indice: number;
 
   constructor(private personaService: PersonaService) {
+  }
 
+  ngOnInit(): void {
+    // window.location.reload()
+  }
+
+  recargar():void {
+    window.location.reload();
   }
 
   emitirSaludo():void {
