@@ -1,26 +1,8 @@
 <div class="container">
-  <div class="col">
+  <div class="col mt-4">
     <h3>{{ title }}</h3>
   </div>
   <hr />
-  <app-formulario
-    (conditionChanged)="cambiarCondicion($event)"
-    (messageChanged)="cambiarMensaje($event)"
-  >
-  </app-formulario>
-  <hr />
-</div>
 
-<div class="container">
-  <div *ngIf="condition; else condicion">
-    <app-persona
-      *ngFor="let personaElemento of personas; let i = index"
-      [persona]="personaElemento"
-      [indice]="i"
-    >
-    </app-persona>
-  </div>
+  <router-outlet></router-outlet>
 </div>
-<ng-template #condicion>
-  <p style="color: grey">{{ message }}</p>
-</ng-template>

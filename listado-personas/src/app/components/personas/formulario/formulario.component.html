@@ -1,0 +1,37 @@
+<form
+  action=""
+  class="form-row d-flex gap-2"
+  #formularioReference="ngForm"
+  (ngSubmit)="formularioReference.form.valid && onGuardarPersona()"
+>
+  <div class="form-group col-md-3">
+    <input
+      placeholder="Nombre"
+      type="text"
+      name="nombre"
+      id="nombre"
+      class="form-control"
+      #nombreInputRef
+      required
+    />
+  </div>
+  <div class="form-group col-md-3">
+    <input
+      placeholder="Apellido"
+      type="text"
+      name="apellido"
+      id="apellido"
+      class="form-control"
+      #apellidoInputRef
+      required
+    />
+  </div>
+  <div class="col d-flex gap-3">
+    <button type="submit" class="btn btn-primary">
+      <i class="bi bi-check-circle-fill"></i>
+    </button>
+    <button (click)="eliminarPersona()" type="submit" class="btn btn-danger" *ngIf="index != null">
+      <i class="bi bi-slash-circle"></i>
+    </button>
+  </div>
+</form>
